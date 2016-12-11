@@ -1,0 +1,128 @@
+<?php
+
+namespace Rokka\DBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Пщ�Goods
+ *
+ * @ORM\Table(name="Пщ�goods")
+ * @ORM\Entity(repositoryClass="Rokka\DBundle\Repository\Пщ�GoodsRepository")
+ */
+class Пщ�Goods
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="цкш�writeup", type="string", length=500)
+     */
+    private $цкш�writeup;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tag", type="string", length=30)
+     */
+    private $tag;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Пщ�Goods
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set цкш�writeup
+     *
+     * @param string $цкш�writeup
+     *
+     * @return Пщ�Goods
+     */
+    public function setцкш�writeup($цкш�writeup)
+    {
+        $this->цкш�writeup = $цкш�writeup;
+
+        return $this;
+    }
+
+    /**
+     * Get цкш�writeup
+     *
+     * @return string
+     */
+    public function getцкш�writeup()
+    {
+        return $this->цкш�writeup;
+    }
+
+    /**
+     * Set tag
+     *
+     * @param string $tag
+     *
+     * @return Пщ�Goods
+     */
+    public function setTag($tag)
+    {
+        $this->tag = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Get tag
+     *
+     * @return string
+     */
+    public function getTag()
+    {
+        return $this->tag;
+    }
+}
+
