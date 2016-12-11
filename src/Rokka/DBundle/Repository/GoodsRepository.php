@@ -3,6 +3,7 @@
 namespace Rokka\DBundle\Repository;
 
 use \Doctrine\ORM\EntityRepository;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * GoodsRepository
@@ -13,4 +14,24 @@ use \Doctrine\ORM\EntityRepository;
 class GoodsRepository extends EntityRepository
 {
 
+    public function findPriceBetween($from, $to, $id)
+    {
+        $repository = $this->getEntityManager()->getRepository('RokkaDBundle:Goods');
+        $qb = $repository->createQueryBuilder('g');
+        $qb->select(array('g'))
+        ->from('Goods', 'g')
+            ->where($qb->expr()->andX(
+                $qb->expr()->gt('g.id', ':id'),
+                $qb->expr()->between('g.price', ':from', ':to')
+            ))
+            ->orderBy('g.name', 'ASC')
+            ->setParameter(':id', $id)
+            ->setParameter(':from', $from)
+            ->setParameter(':to', $to);
+        $query = $qb->getQuery();
+        $result = $query->getResult();
+
+        return new Response($result);
+
+    }
 }
