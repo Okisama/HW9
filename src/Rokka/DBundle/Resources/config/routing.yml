@@ -1,0 +1,3 @@
+rokka_d_homepage:
+    path:     /
+    defaults: { _controller: RokkaDBundle:Default:index }

@@ -1,0 +1,4 @@
+rokka_d:
+    resource: "@RokkaDBundle/Resources/config/routing.yml"
+    prefix:   /
+
