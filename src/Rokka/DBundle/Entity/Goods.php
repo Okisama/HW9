@@ -26,6 +26,9 @@ class Goods
     /**
      *
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="Goods")
+     * Юзать полное имя таргет ентити /bundle/entity/goods
+     * Названия в единственном числе
+     *
      */
     private $category;
 

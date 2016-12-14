@@ -18,6 +18,9 @@ class GoodsRepository extends EntityRepository
     {
         $repository = $this->getEntityManager()->getRepository('RokkaDBundle:Goods');
         $qb = $repository->createQueryBuilder('g');
+
+        // ctrl+q показывает док блок
+
         $qb->select(array('g'))
         ->from('Goods', 'g')
             ->where($qb->expr()->andX(
@@ -31,7 +34,7 @@ class GoodsRepository extends EntityRepository
         $query = $qb->getQuery();
         $result = $query->getResult();
 
-        return new Response($result);
+      //  return new Response($result);  Не должно возвращать респонз только ентити коллекцию
 
     }
 }
